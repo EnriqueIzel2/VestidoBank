@@ -24,13 +24,8 @@ public class Cliente {
 	}
 	
 	public void abrirContaPoupanca(Agencia agencia, String data, int codigo, double saldo, String niver, double juros) {
-<<<<<<< HEAD
 		if (!(this.contas[1] instanceof ContaPoupanca)) {
 			this.contas[0] = new ContaPoupanca(agencia, data, codigo, saldo, niver, juros);
-=======
-		if (!(this.cntPoupanca instanceof ContaPoupanca)) {
-			 this.cntPoupanca = new ContaPoupanca(agencia, data, codigo, saldo, niver, juros);
->>>>>>> 808d0b7385475f5630c737dc1d8e86451ff152d3
 			 System.out.println("Conta Poupança aberta com sucesso");
 		}
 		else {
@@ -54,6 +49,7 @@ public class Cliente {
 		System.out.println("Data de nascimento: " + this.getDataNascimento());
 		System.out.println("Endereço: " + this.getEndereco());
 		System.out.println("Telefone: " + this.getTelefone());
+		this.contas[0].mostrarContas();
 	}
 	
 //	setters e getters

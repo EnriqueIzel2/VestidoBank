@@ -34,9 +34,15 @@ public class Agencia {
 	}
 	
 	public void mostrarClientes(){
-		System.out.println("Clientes cadastrados");
-		for (int i = 0; i < this.clientes.size(); i++) {
-			System.out.println(this.clientes.get(i));
+		if (this.clientes.size() > 0) {
+			System.out.println("Clientes cadastrados");
+			for (int i = 0; i < this.clientes.size(); i++) {
+				System.out.println("Cliente nº " + (i + 1));
+				this.clientes.get(i).mostrarDados();
+			}
+		}
+		else {
+			System.out.println("Não há clientes nessa agência");
 		}
 	}
 }

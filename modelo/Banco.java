@@ -9,6 +9,8 @@ public class Banco {
 		this.agencias = new ArrayList<Agencia>();
 	}
 	
+	
+//	funcionalidades
 	public void cadastrarAgencia(Agencia obj){
 		this.agencias.add(obj);
 		System.out.println("Agência cadastrada com sucesso");
