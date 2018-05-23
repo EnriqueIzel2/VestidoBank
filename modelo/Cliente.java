@@ -2,8 +2,7 @@ package modelo;
 
 public class Cliente {
 	private String cpf, endereco, nome, telefone, dataNascimento;
-	private ContaCorrente cntCorrente;
-	private ContaPoupanca cntPoupanca;
+	private Conta contas[] = new Conta[2];
 	
 	public Cliente(String nome, String endereco, String cpf, String data, String fone){
 		this.setNome(nome);
@@ -15,8 +14,8 @@ public class Cliente {
 	
 //	funcionalidades
 	public void abrirContaCorrente(Agencia agencia, String data, int codigo, double saldo) {
-		if (!(this.cntCorrente instanceof ContaCorrente)) {
-			 this.cntCorrente = new ContaCorrente(agencia, data, codigo, saldo);
+		if (!(this.contas[0] instanceof ContaCorrente)) {
+			this.contas[0] = new ContaCorrente(agencia, data, codigo, saldo);
 			 System.out.println("Conta Corrente aberta com sucesso");
 		}
 		else {
@@ -25,9 +24,9 @@ public class Cliente {
 	}
 	
 	public void abrirContaPoupanca(Agencia agencia, String data, int codigo, double saldo, String niver, double juros) {
-		if (!(this.cntPoupanca instanceof ContaPoupanca)) {
-			 this.cntPoupanca = new ContaPoupanca(agencia, data, codigo, saldo, niver, juros);
-			 System.out.println("Conta Corrente aberta com sucesso");
+		if (!(this.contas[1] instanceof ContaPoupanca)) {
+			this.contas[0] = new ContaPoupanca(agencia, data, codigo, saldo, niver, juros);
+			 System.out.println("Conta Poupança aberta com sucesso");
 		}
 		else {
 			System.out.println("Esse cliente já possui uma conta poupança");
@@ -35,11 +34,13 @@ public class Cliente {
 	}
 	
 	public void excluirContaCorrente() {
-		
+		this.contas[0] = null;
+		System.out.println("Conta Corrente excluída com sucesso");
 	}
 	
 	public void excluirContaPoupanca() {
-		
+		this.contas[1] = null;
+		System.out.println("Conta Poupança excluída com sucesso");
 	}
 	
 	public void mostrarDados(){
@@ -89,6 +90,14 @@ public class Cliente {
 
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public Conta[] getContas() {
+		return contas;
+	}
+
+	public void setContas(Conta[] contas) {
+		this.contas = contas;
 	}
 	
 	
