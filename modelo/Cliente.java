@@ -2,7 +2,8 @@ package modelo;
 
 public class Cliente {
 	private String cpf, endereco, nome, telefone, dataNascimento;
-	private Conta contaPoupanca, contaCorrente;
+	private ContaCorrente cntCorrente;
+	private ContaPoupanca cntPoupanca;
 	
 	public Cliente(String nome, String endereco, String cpf, String data, String fone){
 		this.setNome(nome);
@@ -13,8 +14,28 @@ public class Cliente {
 	}
 	
 //	funcionalidades
-	public void mostrarDados(){
+	public void abrirContaCorrente(String data, Agencia agencia, int codigo, double saldo) {
+		this.cntCorrente = new ContaCorrente(agencia, data, codigo, saldo);
+	}
+	
+	public void abrirContaPoupanca() {
 		
+	}
+	
+	public void excluirContaCorrente() {
+		
+	}
+	
+	public void excluirContaPoupanca() {
+		
+	}
+	
+	public void mostrarDados(){
+		System.out.println("Nome: " + this.getNome());
+		System.out.println("Cpf: " + this.getCpf());
+		System.out.println("Data de nascimento: " + this.getDataNascimento());
+		System.out.println("Endereço: " + this.getEndereco());
+		System.out.println("Telefone: " + this.getTelefone());
 	}
 	
 //	setters e getters
