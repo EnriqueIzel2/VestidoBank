@@ -27,7 +27,7 @@ public class Cliente {
 	public void abrirContaPoupanca(Agencia agencia, String data, int codigo, double saldo, String niver, double juros) {
 		if (!(this.cntPoupanca instanceof ContaPoupanca)) {
 			 this.cntPoupanca = new ContaPoupanca(agencia, data, codigo, saldo, niver, juros);
-			 System.out.println("Conta Corrente aberta com sucesso");
+			 System.out.println("Conta Poupança aberta com sucesso");
 		}
 		else {
 			System.out.println("Esse cliente já possui uma conta poupança");
