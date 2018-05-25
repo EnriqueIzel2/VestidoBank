@@ -1,13 +1,13 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public abstract class Conta {
-	private int codigo;
 	private double saldo;
-	private String dataAbertura;
-	private Agencia agencia;
+	private String dataAbertura, codigo;
+	private ArrayList<Historico> operacoes;
 	
-	public Conta(Agencia agencia, String data, int codigo, double saldo) {
-		this.setAgencia(agencia);
+	public Conta(String data, String codigo, double saldo) {
 		this.setDataAbertura(data);
 		this.setCodigo(codigo);
 		this.setSaldo(saldo);
@@ -17,15 +17,44 @@ public abstract class Conta {
 		
 	}
 	
+//	funcionalidades
+	public void creditar(double quantia) {
+		this.setSaldo(this.getSaldo() + quantia);
+		System.out.println("Quantia adicionado com sucesso");
+	}
+	
+	public void debitar(double quantia) {
+		if (this.getSaldo() >= quantia) {
+			this.setSaldo(getSaldo() - quantia);		
+		}
+		else {
+			System.out.println("Seu saldo é menor que a quantia desejada");
+		}
+	}
+	
+	public void efetuarTransferencia(double quantia, String codDestino) {
+		for (int i = 0; i < 2; i++) {
+			if (codDestino == this.getCodigo()) {
+			
+			}
+			else {
+				System.out.println("Conta destino não existe");
+			}
+		}
+	}
+	
 	public void mostrarContas() {
 		
+		System.out.println("Data abertura: " + this.getDataAbertura());
+		System.out.println("Código: " + this.getCodigo());
+		System.out.println("Saldo: " + this.getSaldo());
 	}
 	
 //	getters e setters
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public double getSaldo() {
@@ -40,11 +69,13 @@ public abstract class Conta {
 	public void setDataAbertura(String dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
-	public Agencia getAgencia() {
-		return agencia;
+
+	public ArrayList<Historico> getOperacoes() {
+		return operacoes;
 	}
-	public void setAgencia(Agencia agencia) {
-		this.agencia = agencia;
+
+	public void setOperacoes(ArrayList<Historico> operacoes) {
+		this.operacoes = operacoes;
 	}
 	
 	

@@ -45,4 +45,13 @@ public class Agencia {
 			System.out.println("Não há clientes nessa agência");
 		}
 	}
+
+//	getters e setters
+	public ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
 }

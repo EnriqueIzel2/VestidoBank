@@ -13,9 +13,9 @@ public class Cliente {
 	}
 	
 //	funcionalidades
-	public void abrirContaCorrente(Agencia agencia, String data, int codigo, double saldo) {
+	public void abrirContaCorrente(Agencia agencia, String data, String codigo, double saldo) {
 		if (!(this.contas[0] instanceof ContaCorrente)) {
-			this.contas[0] = new ContaCorrente(agencia, data, codigo, saldo);
+			this.contas[0] = new ContaCorrente(data, codigo, saldo);
 			 System.out.println("Conta Corrente aberta com sucesso");
 		}
 		else {
@@ -23,9 +23,9 @@ public class Cliente {
 		}
 	}
 	
-	public void abrirContaPoupanca(Agencia agencia, String data, int codigo, double saldo, String niver, double juros) {
+	public void abrirContaPoupanca(Agencia agencia, String data, String codigo, double saldo, String niver, double juros) {
 		if (!(this.contas[1] instanceof ContaPoupanca)) {
-			this.contas[0] = new ContaPoupanca(agencia, data, codigo, saldo, niver, juros);
+			this.contas[0] = new ContaPoupanca(data, codigo, saldo, niver, juros);
 			 System.out.println("Conta Poupança aberta com sucesso");
 		}
 		else {
@@ -33,12 +33,12 @@ public class Cliente {
 		}
 	}
 	
-	public void excluirContaCorrente() {
+	public void fecharContaCorrente() {
 		this.contas[0] = null;
 		System.out.println("Conta Corrente excluída com sucesso");
 	}
 	
-	public void excluirContaPoupanca() {
+	public void fecharContaPoupanca() {
 		this.contas[1] = null;
 		System.out.println("Conta Poupança excluída com sucesso");
 	}

@@ -4,14 +4,22 @@ public class ContaPoupanca extends Conta {
 	private String aniversarioConta;
 	private double porcJuros;
 	
-	public ContaPoupanca(Agencia agencia, String data, int codigo, double saldo, String niver, double juros) {
-		super(agencia, data, codigo, saldo);
+	public ContaPoupanca(String data, String codigo, double saldo, String niver, double juros) {
+		super(data, codigo, saldo);
 		this.setAniversarioConta(niver);
 		this.setPorcJuros(juros);
 	}
 	
+	public ContaPoupanca() {
+		super();
+	}
+	
 //	funcionalidades
-	public void calcularJuros(){
+	public void efetuarRendimento(){
+		
+	}
+	
+	public void controlarRendimento() {
 		
 	}
 	

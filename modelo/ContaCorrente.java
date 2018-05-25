@@ -6,9 +6,9 @@ public class ContaCorrente extends Conta {
 	private double valorManutencao;
 	private ArrayList<Historico> operacoes;
 	
-	public ContaCorrente(Agencia agencia, String data, int codigo, double saldo) {
-		super(agencia, data, codigo, saldo);
-		this.setValorManutencao(0.0);
+	public ContaCorrente(String data, String codigo, double saldo) {
+		super(data, codigo, saldo);
+		this.setValorManutencao(32.69);
 		this.operacoes = new ArrayList<Historico>();
 	}
 	
@@ -17,7 +17,11 @@ public class ContaCorrente extends Conta {
 	}
 	
 //	funcionalidades
-	public void adicionarMovimentacao(){
+	public void efetuarDescontoManutencao(){
+		
+	}
+	
+	public void controlarDescontoManutencao() {
 		
 	}
 	
