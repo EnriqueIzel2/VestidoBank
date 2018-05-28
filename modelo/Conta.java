@@ -22,7 +22,7 @@ public abstract class Conta {
 	
 	abstract public void debitar(double quantia);
 	
-	abstract public void efetuarTransferencia();
+	abstract public void efetuarTransferencia(double quantia, String destino);
 	
 	abstract public void mostrarContas();
 	
