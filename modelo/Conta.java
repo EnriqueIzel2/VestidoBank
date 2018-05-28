@@ -18,37 +18,13 @@ public abstract class Conta {
 	}
 	
 //	funcionalidades
-	public void creditar(double quantia) {
-		this.setSaldo(this.getSaldo() + quantia);
-		System.out.println("Quantia adicionado com sucesso");
-	}
+	abstract public void creditar(double quantia);
 	
-	public void debitar(double quantia) {
-		if (this.getSaldo() >= quantia) {
-			this.setSaldo(getSaldo() - quantia);		
-		}
-		else {
-			System.out.println("Seu saldo é menor que a quantia desejada");
-		}
-	}
+	abstract public void debitar(double quantia);
 	
-	public void efetuarTransferencia(double quantia, String codDestino) {
-		for (int i = 0; i < 2; i++) {
-			if (codDestino == this.getCodigo()) {
-			
-			}
-			else {
-				System.out.println("Conta destino não existe");
-			}
-		}
-	}
+	abstract public void efetuarTransferencia();
 	
-	public void mostrarContas() {
-		
-		System.out.println("Data abertura: " + this.getDataAbertura());
-		System.out.println("Código: " + this.getCodigo());
-		System.out.println("Saldo: " + this.getSaldo());
-	}
+	abstract public void mostrarContas();
 	
 //	getters e setters
 	public String getCodigo() {
@@ -77,6 +53,5 @@ public abstract class Conta {
 	public void setOperacoes(ArrayList<Historico> operacoes) {
 		this.operacoes = operacoes;
 	}
-	
 	
 }
