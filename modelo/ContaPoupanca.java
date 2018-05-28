@@ -13,19 +13,30 @@ public class ContaPoupanca extends Conta {
 	public ContaPoupanca() {
 		super();
 	}
-	
+
 //	funcionalidades
-	public void efetuarRendimento(){
-		
+	@Override
+	public void creditar(double quantia) {
+		// TODO Auto-generated method stub
+
 	}
-	
-	public void controlarRendimento() {
-		
+
+	@Override
+	public void debitar(double quantia) {
+		// TODO Auto-generated method stub
+
 	}
-	
-	public void mostrarDados() {
-		System.out.println("Aniversário da conta: " + this.getAniversarioConta());
-		System.out.println("Porcentagem de juros: " + this.getPorcJuros());
+
+	@Override
+	public void efetuarTransferencia() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mostrarContas() {
+		// TODO Auto-generated method stub
+
 	}
 
 //	getters e setters
@@ -44,4 +55,5 @@ public class ContaPoupanca extends Conta {
 	public void setPorcJuros(double porcJuros) {
 		this.porcJuros = porcJuros;
 	}
+
 }
