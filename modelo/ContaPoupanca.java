@@ -17,26 +17,32 @@ public class ContaPoupanca extends Conta {
 //	funcionalidades
 	@Override
 	public void creditar(double quantia) {
-		// TODO Auto-generated method stub
-
+		super.setSaldo(getSaldo() + quantia);
+		System.out.println("Quantia adicionado com sucesso");
 	}
 
 	@Override
 	public void debitar(double quantia) {
+		if (super.getSaldo() >= quantia) {
+			super.setSaldo(getSaldo() - quantia);		
+		}
+		else {
+			System.out.println("Seu saldo é menor que a quantia desejada");
+		}
+	}
+
+	@Override
+	public void efetuarTransferencia(double quantia, String destino) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void efetuarTransferencia() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mostrarContas() {
-		// TODO Auto-generated method stub
-
+	public void mostrarConta() {
+		System.out.println("Conta Poupança");
+		System.out.println("Data de abertura: " + super.getDataAbertura());
+		System.out.println("Código da conta: " + super.getCodigo());
+		System.out.println("Saldo da conta: " + super.getSaldo());
 	}
 
 //	getters e setters
