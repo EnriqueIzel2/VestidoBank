@@ -2,7 +2,8 @@ package modelo;
 
 public class Cliente {
 	private String cpf, endereco, nome, telefone, dataNascimento;
-	private Conta contas[] = new Conta[2];
+	private ContaCorrente corrente;
+	private ContaPoupanca poupanca;
 	
 	public Cliente(String nome, String endereco, String cpf, String data, String fone){
 		this.setNome(nome);
@@ -14,8 +15,8 @@ public class Cliente {
 	
 //	funcionalidades
 	public void abrirContaCorrente(Agencia agencia, String data, String codigo, double saldo) {
-		if (!(this.contas[0] instanceof ContaCorrente)) {
-			this.contas[0] = new ContaCorrente(data, codigo, saldo);
+		if (!(this.corrente instanceof ContaCorrente)) {
+			this.corrente = new ContaCorrente(data, codigo, saldo);
 			 System.out.println("Conta Corrente aberta com sucesso");
 		}
 		else {
@@ -24,8 +25,8 @@ public class Cliente {
 	}
 	
 	public void abrirContaPoupanca(Agencia agencia, String data, String codigo, double saldo, String niver, double juros) {
-		if (!(this.contas[1] instanceof ContaPoupanca)) {
-			this.contas[0] = new ContaPoupanca(data, codigo, saldo, niver, juros);
+		if (!(this.poupanca instanceof ContaPoupanca)) {
+			this.poupanca = new ContaPoupanca(data, codigo, saldo, niver, juros);
 			 System.out.println("Conta Poupança aberta com sucesso");
 		}
 		else {
@@ -34,12 +35,12 @@ public class Cliente {
 	}
 	
 	public void fecharContaCorrente() {
-		this.contas[0] = null;
+		this.corrente = null;
 		System.out.println("Conta Corrente excluída com sucesso");
 	}
 	
 	public void fecharContaPoupanca() {
-		this.contas[1] = null;
+		this.poupanca = null;
 		System.out.println("Conta Poupança excluída com sucesso");
 	}
 	
@@ -49,7 +50,7 @@ public class Cliente {
 		System.out.println("Data de nascimento: " + this.getDataNascimento());
 		System.out.println("Endereço: " + this.getEndereco());
 		System.out.println("Telefone: " + this.getTelefone());
-		this.contas[0].mostrarContas();
+		this.poupanca.mostrarContas();
 	}
 	
 //	setters e getters
@@ -93,12 +94,20 @@ public class Cliente {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public Conta[] getContas() {
-		return contas;
+	public ContaCorrente getCorrente() {
+		return corrente;
 	}
 
-	public void setContas(Conta[] contas) {
-		this.contas = contas;
+	public void setCorrente(ContaCorrente corrente) {
+		this.corrente = corrente;
+	}
+
+	public ContaPoupanca getPoupanca() {
+		return poupanca;
+	}
+
+	public void setPoupanca(ContaPoupanca poupanca) {
+		this.poupanca = poupanca;
 	}
 	
 	
