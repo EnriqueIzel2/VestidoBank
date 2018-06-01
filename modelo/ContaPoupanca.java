@@ -16,6 +16,15 @@ public class ContaPoupanca extends Conta {
 	}
 
 //	funcionalidades
+	public void efetuarRendimento() {
+		super.setSaldo(super.getSaldo() + (super.getSaldo() * this.getPorcJuros() / 100));
+		System.out.println("Rendimento efetuado");
+	}
+	
+	public void controlarRendimento() {
+		System.out.println("Rendimento: " + super.getSaldo() * this.getPorcJuros() / 100);
+	}
+	
 	@Override
 	public void creditar(double quantia) {
 		super.setSaldo(getSaldo() + quantia);
