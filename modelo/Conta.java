@@ -25,6 +25,8 @@ public abstract class Conta {
 	
 	abstract public void efetuarTransferencia(double quantia, String destino);
 	
+	abstract public void mostrarConta();
+
 	public void guardarHistorico(Historico obj) {
 		this.operacoes.add(obj);
 	}
@@ -34,9 +36,7 @@ public abstract class Conta {
 		for (int i = 0; i < this.operacoes.size(); i++) {
 			this.operacoes.get(i).mostrarHistorico();
 		}
-	}
-	
-	abstract public void mostrarConta();
+	}	
 	
 //	getters e setters
 	public String getCodigo() {
