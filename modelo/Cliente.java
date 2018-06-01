@@ -50,7 +50,12 @@ public class Cliente {
 		System.out.println("Data de nascimento: " + this.getDataNascimento());
 		System.out.println("Endereço: " + this.getEndereco());
 		System.out.println("Telefone: " + this.getTelefone());
-		this.poupanca.mostrarContas();
+		if (corrente instanceof Conta) {
+			this.corrente.mostrarConta();
+		}
+		if (poupanca instanceof Conta) {
+			this.poupanca.mostrarConta();			
+		}
 	}
 	
 //	setters e getters

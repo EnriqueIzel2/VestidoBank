@@ -4,17 +4,32 @@ public class Historico {
     private String dataOp, codDestino;
     private double valor;
     
+    public Historico(String data, String destino, double valor) {
+    	this.setDataOp(data);
+    	this.setCodDestino(destino);
+    	this.setValor(valor);
+    }
+    
+    public Historico(String data, double valor) {
+    	this.setDataOp(data);
+    	this.setValor(valor);
+    }
+    
     public Historico() {
     	
     }
     
-//    funcionalidades
-    public void efetuarTransferencia() {
+//    funcionalidade
+    public void guardarOperacao() {
     	
     }
     
-    public void armazenarOperacao() {
-    	
+    public void mostrarHistorico() {
+    	System.out.println("Data da operação: " + this.getDataOp());
+    	if (this.getCodDestino() != null) {
+    		System.out.println("Código de destino: " + this.getCodDestino());		
+		}
+    	System.out.println("Valor da operação: " + this.getValor());
     }
     
 //getters e setters

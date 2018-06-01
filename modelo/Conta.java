@@ -11,6 +11,7 @@ public abstract class Conta {
 		this.setDataAbertura(data);
 		this.setCodigo(codigo);
 		this.setSaldo(saldo);
+		this.operacoes = new ArrayList<Historico>();
 	}
 	
 	public Conta() {
@@ -24,7 +25,18 @@ public abstract class Conta {
 	
 	abstract public void efetuarTransferencia(double quantia, String destino);
 	
-	abstract public void mostrarContas();
+	public void guardarHistorico(Historico obj) {
+		this.operacoes.add(obj);
+	}
+	
+	public void mostrarOperacoes() {
+		System.out.println("Histórico de operações");
+		for (int i = 0; i < this.operacoes.size(); i++) {
+			this.operacoes.get(i).mostrarHistorico();
+		}
+	}
+	
+	abstract public void mostrarConta();
 	
 //	getters e setters
 	public String getCodigo() {

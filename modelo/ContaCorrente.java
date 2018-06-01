@@ -2,6 +2,7 @@ package modelo;
 
 public class ContaCorrente extends Conta {
 	private double valorManutencao;
+	Historico obj;
 	
 	public ContaCorrente(String data, String codigo, double saldo) {
 		super(data, codigo, saldo);
@@ -37,13 +38,15 @@ public class ContaCorrente extends Conta {
 	@Override
 	public void creditar(double quantia) {
 		super.setSaldo(getSaldo() + quantia);
-		System.out.println("Quantia adicionado com sucesso");		
+		System.out.println("Quantia adicionado com sucesso");
+		super.guardarHistorico(obj = new Historico("31", quantia));
 	}
 
 	@Override
 	public void debitar(double quantia) {
 		if (super.getSaldo() >= quantia) {
-			super.setSaldo(getSaldo() - quantia);		
+			super.setSaldo(getSaldo() - quantia);
+			super.guardarHistorico(obj = new Historico("31", quantia));
 		}
 		else {
 			System.out.println("Seu saldo é menor que a quantia desejada");
@@ -52,8 +55,10 @@ public class ContaCorrente extends Conta {
 
 	@Override
 	public void efetuarTransferencia(double quantia, String destino) {
-		// TODO Auto-generated method stub
-		
+		this.debitar(quantia);
+		System.out.println("Transferência realizada");
+		System.out.println("Novo saldo: " + super.getSaldo());
+		super.guardarHistorico(obj = new Historico("31", destino, quantia));
 	}
 
 	@Override
