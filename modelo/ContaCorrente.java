@@ -6,7 +6,7 @@ public class ContaCorrente extends Conta {
 	
 	public ContaCorrente(String data, String codigo, double saldo) {
 		super(data, codigo, saldo);
-		this.setValorManutencao(32.69);
+		this.setValorManutencao(0.3);
 	}
 	
 	public ContaCorrente() {
@@ -15,11 +15,11 @@ public class ContaCorrente extends Conta {
 	
 //	funcionalidades
 	public void efetuarDescontoManutencao(){
-		this.setSaldo(getSaldo() - this.getValorManutencao());
+		super.setSaldo(getSaldo() - (super.getSaldo() * this.getValorManutencao() / 100));
 	}
 	
 	public void controlarDescontoManutencao() {
-//		quanto foi descontado cada mẽs
+		System.out.println("Foi descontado: " + super.getSaldo() * this.getValorManutencao() / 100);
 	}
 	
 	public void mostrarDados() {
