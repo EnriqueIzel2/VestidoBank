@@ -23,10 +23,6 @@ public class ContaCorrente extends Conta {
 		System.out.println("Foi descontado: " + super.getSaldo() * this.getValorManutencao() / 100);
 	}
 	
-	public void mostrarDados() {
-		System.out.println("Valor da manutenção: " + this.getValorManutencao());
-	}
-	
 //	getters e setters
 	public double getValorManutencao() {
 		return valorManutencao;
