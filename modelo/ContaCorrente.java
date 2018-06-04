@@ -2,7 +2,7 @@ package modelo;
 
 public class ContaCorrente extends Conta {
 	private double valorManutencao;
-	Historico obj;
+	private Historico obj;
 	
 	public ContaCorrente(String data, String codigo, double saldo) {
 		super(data, codigo, saldo);
@@ -16,6 +16,7 @@ public class ContaCorrente extends Conta {
 //	funcionalidades
 	public void efetuarDescontoManutencao(){
 		super.setSaldo(getSaldo() - (super.getSaldo() * this.getValorManutencao() / 100));
+		System.out.println("Desconto de manutenção efetuado");
 	}
 	
 	public void controlarDescontoManutencao() {
@@ -67,5 +68,13 @@ public class ContaCorrente extends Conta {
 		System.out.println("Data de abertura: " + super.getDataAbertura());
 		System.out.println("Código da conta: " + super.getCodigo());
 		System.out.println("Saldo da conta: " + super.getSaldo());		
+	}
+
+	public Historico getObj() {
+		return obj;
+	}
+
+	public void setObj(Historico obj) {
+		this.obj = obj;
 	}
 }

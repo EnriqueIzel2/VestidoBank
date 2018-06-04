@@ -3,7 +3,7 @@ package modelo;
 public class ContaPoupanca extends Conta {
 	private String aniversarioConta;
 	private double porcJuros;
-	Historico obj;
+	private Historico obj;
 	
 	public ContaPoupanca(String data, String codigo, double saldo, String niver, double juros) {
 		super(data, codigo, saldo);
@@ -74,6 +74,14 @@ public class ContaPoupanca extends Conta {
 
 	public void setPorcJuros(double porcJuros) {
 		this.porcJuros = porcJuros;
+	}
+
+	public Historico getObj() {
+		return obj;
+	}
+
+	public void setObj(Historico obj) {
+		this.obj = obj;
 	}
 
 }

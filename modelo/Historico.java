@@ -20,9 +20,6 @@ public class Historico {
     }
     
 //    funcionalidade
-    public void guardarOperacao() {
-    	
-    }
     
     public void mostrarHistorico() {
     	System.out.println("Data da operação: " + this.getDataOp());
